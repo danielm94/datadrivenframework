@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Parallel Suite" verbose="1" parallel="classes">
+    <test name="Chrome Suite">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="ui_tests.forms.LoginTest"/>
+            <class name="ui_tests.home_page.HomePageTest"/>
+        </classes>
+    </test>
+    <test name="Firefox Suite">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="ui_tests.forms.LoginTest"/>
+            <class name="ui_tests.home_page.HomePageTest"/>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Parallel Suite" verbose="1" parallel="classes">
+    <test name="Login Suite">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="ui_tests.forms.LoginTest"/>
+        </classes>
+    </test>
+</suite>

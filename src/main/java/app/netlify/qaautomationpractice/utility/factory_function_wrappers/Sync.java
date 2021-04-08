@@ -1,4 +1,4 @@
-package app.netlify.qaautomationpractice.utility.page_factory_function_wrappers;
+package app.netlify.qaautomationpractice.utility.factory_function_wrappers;
 
 import app.netlify.qaautomationpractice.utility.data_io.PropertyReader;
 import app.netlify.qaautomationpractice.utility.data_io.PropertyFile;

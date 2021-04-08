@@ -14,7 +14,6 @@ import java.io.IOException;
 
 public class TestBase extends TestListenerAdapter {
     protected static String baseUrl;
-
     @BeforeClass
     public void beforeClass() {
         baseUrl = PropertyReader.getProperty(PropertyFile.APPLICATION_PROPERTIES, "site.url");

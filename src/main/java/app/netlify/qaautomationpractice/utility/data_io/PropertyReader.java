@@ -29,11 +29,11 @@ public class PropertyReader {
         return property;
     }
 
-    public static HashMap<String, String> getFileAsMap(String fileName) {
+    public static HashMap<String, Object> getFileAsMap(String file) {
         try {
-            HashMap<String, String> mapOfProperties = new HashMap<>();
+            HashMap<String, Object> mapOfProperties = new HashMap<>();
             Properties properties = new Properties();
-            properties.load(PropertyReader.class.getResourceAsStream(fileName));
+            properties.load(PropertyReader.class.getResourceAsStream(file));
             for (Object o : properties.keySet()) {
                 String value = properties.getProperty(o.toString());
                 mapOfProperties.put(o.toString(), value);
@@ -45,9 +45,9 @@ public class PropertyReader {
         }
     }
 
-    public static HashMap<String, String> getFileAsMap(PropertyFile propertyFile) {
+    public static HashMap<String, Object> getFileAsMap(PropertyFile propertyFile) {
         try {
-            HashMap<String, String> mapOfProperties = new HashMap<>();
+            HashMap<String, Object> mapOfProperties = new HashMap<>();
             Properties properties = new Properties();
             properties.load(PropertyReader.class.getResourceAsStream(propertyFile.getFilePath()));
             for (Object o : properties.keySet()) {
@@ -69,7 +69,7 @@ public class PropertyReader {
             for (Object o : properties.keySet()) {
                 String value = properties.getProperty(o.toString());
                 if (!value.equals("false") && !value.equals("")) {
-                    listOfProperties.add(o.toString() + "=" + value);
+                    listOfProperties.add(o + "=" + value);
                 }
             }
             return listOfProperties;
@@ -87,7 +87,7 @@ public class PropertyReader {
             for (Object o : properties.keySet()) {
                 String value = properties.getProperty(o.toString());
                 if (!value.equals("false") && !value.equals("")) {
-                    listOfProperties.add(o.toString() + "=" + value);
+                    listOfProperties.add(o + "=" + value);
                 }
             }
             return listOfProperties;

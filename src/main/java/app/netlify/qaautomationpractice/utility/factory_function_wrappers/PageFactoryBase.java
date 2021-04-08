@@ -1,4 +1,4 @@
-package app.netlify.qaautomationpractice.utility.page_factory_function_wrappers;
+package app.netlify.qaautomationpractice.utility.factory_function_wrappers;
 
 import app.netlify.qaautomationpractice.utility.driver.GetDriver;
 import org.openqa.selenium.By;
@@ -7,8 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 
 import java.time.Duration;
-import java.util.LinkedList;
-import java.util.List;
 
 public abstract class PageFactoryBase {
     protected abstract String getExpectedPageURL();

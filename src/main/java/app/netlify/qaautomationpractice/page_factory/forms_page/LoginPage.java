@@ -3,7 +3,7 @@ package app.netlify.qaautomationpractice.page_factory.forms_page;
 import app.netlify.qaautomationpractice.utility.data_io.PropertyReader;
 import app.netlify.qaautomationpractice.utility.data_io.PropertyFile;
 import app.netlify.qaautomationpractice.utility.driver.GetDriver;
-import app.netlify.qaautomationpractice.utility.page_factory_function_wrappers.PageFactoryBase;
+import app.netlify.qaautomationpractice.utility.factory_function_wrappers.PageFactoryBase;
 import app.netlify.qaautomationpractice.utility.report_utility.Log;
 import com.aventstack.extentreports.Status;
 import org.openqa.selenium.TimeoutException;

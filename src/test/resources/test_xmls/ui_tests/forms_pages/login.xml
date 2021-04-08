@@ -3,15 +3,15 @@
     <test name="Chrome Suite">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="ui_tests.forms.LoginTest"/>
-            <class name="ui_tests.home_page.HomePageTest"/>
+            <class name="app.netlify.qaautomationpractice.ui_tests.forms.LoginTest"/>
+            <class name="app.netlify.qaautomationpractice.ui_tests.home_page.HomePageTest"/>
         </classes>
     </test>
     <test name="Firefox Suite">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="ui_tests.forms.LoginTest"/>
-            <class name="ui_tests.home_page.HomePageTest"/>
+            <class name="app.netlify.qaautomationpractice.ui_tests.forms.LoginTest"/>
+            <class name="app.netlify.qaautomationpractice.ui_tests.home_page.HomePageTest"/>
         </classes>
     </test>
 </suite>

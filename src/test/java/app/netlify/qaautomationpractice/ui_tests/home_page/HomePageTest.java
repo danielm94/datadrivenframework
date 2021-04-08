@@ -1,4 +1,4 @@
-package ui_tests.home_page;
+package app.netlify.qaautomationpractice.ui_tests.home_page;
 
 import app.netlify.qaautomationpractice.page_factory.home_page.HomePage;
 import app.netlify.qaautomationpractice.utility.report_utility.TestReportInformation;

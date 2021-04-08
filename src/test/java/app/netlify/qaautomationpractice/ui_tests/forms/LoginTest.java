@@ -1,4 +1,4 @@
-package ui_tests.forms;
+package app.netlify.qaautomationpractice.ui_tests.forms;
 
 import app.netlify.qaautomationpractice.data_providers.forms_pages.LoginData;
 import app.netlify.qaautomationpractice.page_factory.forms_page.LoginPage;

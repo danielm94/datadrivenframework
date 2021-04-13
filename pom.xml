@@ -179,6 +179,7 @@
             <id>environment.automation_practice</id>
             <properties>
                 <site.url>https://qa-automation-practice.netlify.app/index.html</site.url>
+                <api.uri>https://qa-automation-practice.herokuapp.com/</api.uri>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>

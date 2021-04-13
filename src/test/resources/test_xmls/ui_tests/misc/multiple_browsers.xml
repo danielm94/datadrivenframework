@@ -2,8 +2,8 @@
 <suite name="Debugging Suite" verbose="1" parallel="classes">
     <test name="Debugging Test">
         <classes>
-            <class name="app.netlify.qaautomationpractice.ui_tests.home_page.HomePageTest"/>
-            <class name="app.netlify.qaautomationpractice.ui_tests.home_page.HomePageTest2"/>
+            <class name="app.netlify.qaautomationpractice.ui_tests.home_page.HomePageUITest"/>
+            <class name="app.netlify.qaautomationpractice.ui_tests.home_page.HomePageUITest2"/>
         </classes>
     </test>
 </suite>

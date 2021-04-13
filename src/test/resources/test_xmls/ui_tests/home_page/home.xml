@@ -3,7 +3,7 @@
     <test name="Chrome Suite">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="app.netlify.qaautomationpractice.ui_tests.home_page.HomePageTest"/>
+            <class name="app.netlify.qaautomationpractice.ui_tests.home_page.HomePageUITest"/>
         </classes>
     </test>
 </suite>

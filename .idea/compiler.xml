@@ -2,7 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <excludeFromCompile>
-      <file url="file://$PROJECT_DIR$/src/main/java/app/netlify/qaautomationpractice/utility/driver/Test123.java" />
+      <file url="file://$PROJECT_DIR$/src/main/java/app/netlify/qaautomationpractice/ui/utility/driver/Test123.java" />
       <directory url="file://$PROJECT_DIR$/src/main/resources/archetype-resources" includeSubdirectories="true" />
     </excludeFromCompile>
     <annotationProcessing>

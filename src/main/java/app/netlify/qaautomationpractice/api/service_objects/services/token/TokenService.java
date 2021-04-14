@@ -15,7 +15,7 @@ public class TokenService implements ServiceObject {
     private String baseURI = getBaseURI();
     private String endpoint = getEndpoint();
     private RequestSpecification spec = getRequestSpecification();
-    private static Response response;
+    private Response response;
 
     @Override
     public String getEndpoint() {
@@ -51,28 +51,27 @@ public class TokenService implements ServiceObject {
         this.spec = spec;
     }
 
-    public void postUserCredentials(String username, String password) {
+    @Override
+    public int getStatusCode() {
+        return response.getStatusCode();
+    }
+
+    @Override
+    public long getResponseTime() {
+        return response.time();
+    }
+
+    public Response postUserCredentials(String username, String password) {
         UserCredentials credentials = new UserCredentials(username, password);
         response = RestAssured
                 .given(spec)
                 .contentType(ContentType.JSON)
                 .body(credentials)
                 .post();
+        return response;
     }
 
-    public void postUserCredentials(UserCredentials credentials) {
-        response = RestAssured
-                .given(spec)
-                .contentType(ContentType.JSON)
-                .body(credentials)
-                .post();
-    }
-
-    public int getStatusCode() {
-        return response.getStatusCode();
-    }
-
-    public String getToken() {
+    public String getResponseToken() {
         return response
                 .getBody()
                 .asString();

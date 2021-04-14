@@ -1,6 +1,5 @@
 package app.netlify.qaautomationpractice.api.service_objects.services;
 
-import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 public interface ServiceObject {
@@ -9,6 +8,10 @@ public interface ServiceObject {
     String getBaseURI();
 
     RequestSpecification getRequestSpecification();
+
+    int getStatusCode();
+
+    long getResponseTime();
 
     void setEndpoint(String endpoint);
 

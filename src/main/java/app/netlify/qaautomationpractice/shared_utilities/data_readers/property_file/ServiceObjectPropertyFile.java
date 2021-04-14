@@ -1,7 +1,8 @@
 package app.netlify.qaautomationpractice.shared_utilities.data_readers.property_file;
 
 public enum ServiceObjectPropertyFile implements PropertyFile {
-    TOKEN_SERVICE_PROPERTIES("/service_object_properties/token_service.properties");
+    TOKEN_SERVICE_PROPERTIES("/service_object_properties/token_service.properties"),
+    EMPLOYEES_SERVICE_PROPERTIES("/service_object_properties/employees_service.properties");
     private final String FILE_PATH;
 
     ServiceObjectPropertyFile(String filePath) {

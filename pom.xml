@@ -101,7 +101,7 @@
                 <version>2.22.2</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/app.netlify.qaautomationpractice.ui_tests/home_page/home.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/test_xmls/ui_tests/home_page/home.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <systemPropertyVariables>
                         <application.properties>/application.properties</application.properties>

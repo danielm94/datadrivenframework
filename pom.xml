@@ -7,7 +7,6 @@
     <groupId>app.netlify.qaautomationpractice</groupId>
     <artifactId>DataDrivenFramework</artifactId>
     <version>1.0</version>
-    <packaging>maven-archetype</packaging>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

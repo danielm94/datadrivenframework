@@ -3,7 +3,7 @@ package app.netlify.qaautomationpractice.ui.utility.test_base;
 import app.netlify.qaautomationpractice.shared_utilities.data_readers.PropertyReader;
 import app.netlify.qaautomationpractice.shared_utilities.data_readers.property_file.FrameworkPropertyFile;
 import app.netlify.qaautomationpractice.shared_utilities.report_utility.*;
-import app.netlify.qaautomationpractice.ui.utility.driver.GetDriver;
+import app.netlify.qaautomationpractice.ui.utility.driver.Driver;
 import com.aventstack.extentreports.Status;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
@@ -22,14 +22,14 @@ public class UITestBase extends TestListenerAdapter {
     @Parameters(value = {"browser"})
     @BeforeMethod
     public void beforeMethod(@Optional String browser) {
-        GetDriver.getInstance().setDriver(browser);
-        GetDriver.getInstance().getDriver().get(baseUrl);
+        Driver.getInstance().setDriver(browser);
+        Driver.getInstance().getDriver().get(baseUrl);
     }
 
 
     @AfterMethod(alwaysRun = true)
     public void afterMethod() {
-        GetDriver.getInstance().quit();
+        Driver.getInstance().quit();
     }
 
     @Override
@@ -53,7 +53,7 @@ public class UITestBase extends TestListenerAdapter {
         Log.log(Status.FAIL, result.getMethod().getMethodName() + " has failed.");
         ThreadLocal<String> screenshotFile = new ThreadLocal<>();
         try {
-            screenshotFile.set(Screenshot.captureBrowser(GetDriver.getInstance().getDriver(),
+            screenshotFile.set(Screenshot.captureBrowser(Driver.getInstance().getDriver(),
                     Reporter.getInstance().getReportDirectory(),
                     result.getMethod().getMethodName() + "_" + TimeStamp.getTimeStamp() + "_FAILURE"));
         } catch (IOException e) {

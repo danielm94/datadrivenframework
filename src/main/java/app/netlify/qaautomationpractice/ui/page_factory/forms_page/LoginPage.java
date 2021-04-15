@@ -2,17 +2,16 @@ package app.netlify.qaautomationpractice.ui.page_factory.forms_page;
 
 import app.netlify.qaautomationpractice.shared_utilities.data_readers.PropertyReader;
 import app.netlify.qaautomationpractice.shared_utilities.data_readers.property_file.PageFactoryPropertyFile;
-import app.netlify.qaautomationpractice.shared_utilities.data_readers.property_file.PropertyFile;
-import app.netlify.qaautomationpractice.ui.utility.driver.GetDriver;
-import app.netlify.qaautomationpractice.ui.utility.factory_function_wrappers.PageFactoryBase;
 import app.netlify.qaautomationpractice.shared_utilities.report_utility.Log;
+import app.netlify.qaautomationpractice.ui.utility.driver.Driver;
+import app.netlify.qaautomationpractice.ui.utility.page_object_utils.*;
 import com.aventstack.extentreports.Status;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage extends PageFactoryBase {
+public class LoginPage implements PageObject {
     private final boolean VERBOSE_LOGS = isVerboseLoggingEnabled();
     private final String PAGE_URL = getExpectedPageURL();
     @FindBy(id = "email")
@@ -27,16 +26,17 @@ public class LoginPage extends PageFactoryBase {
     WebElement loginMessage;
 
     public LoginPage() {
-        PageFactory.initElements(GetDriver.getInstance().getDriver(), this);
+        PageFactory.initElements(Driver.getInstance()
+                                       .getDriver(), this);
     }
 
     @Override
-    protected String getExpectedPageURL() {
+    public String getExpectedPageURL() {
         return PropertyReader.getProperty(PageFactoryPropertyFile.LOGIN_PAGE_PROPERTIES, "url");
     }
 
     @Override
-    protected boolean isVerboseLoggingEnabled() {
+    public boolean isVerboseLoggingEnabled() {
         return Boolean.parseBoolean(PropertyReader.getProperty(PageFactoryPropertyFile.LOGIN_PAGE_PROPERTIES, "verboseLogs"));
     }
 
@@ -44,7 +44,7 @@ public class LoginPage extends PageFactoryBase {
     public boolean isPageLoaded() {
         if (VERBOSE_LOGS) Log.log(Status.INFO, "Checking if login page is loaded.");
         try {
-            isPageURLMatching(PAGE_URL);
+            Check.PageURL.contains(PAGE_URL);
             if (VERBOSE_LOGS) Log.log(Status.INFO, "Login page loaded the correct URL.");
             return true;
         } catch (TimeoutException e) {
@@ -55,44 +55,47 @@ public class LoginPage extends PageFactoryBase {
 
     @Override
     public void navigateToPage() {
-        navigateToURL(PAGE_URL);
+        Driver.getInstance()
+              .navigateToURL(PAGE_URL);
         if (VERBOSE_LOGS) Log.log(Status.INFO, "Navigated to the login page.");
     }
 
     public boolean isPageTitleValid(String title) {
         if (VERBOSE_LOGS) Log.log(Status.INFO, "Checking if page title matches: " + title);
         try {
-            isPageTitleExactMatch(title);
+            Check.PageTitle.matchesExactly(title);
             if (VERBOSE_LOGS) Log.log(Status.INFO, "Title was displayed correctly.");
             return true;
         } catch (TimeoutException e) {
-            Log.log(Status.WARNING, "Login page did not load the correct title! Expected: " + title + " | Found: " + getPageTitle());
+            Log.log(Status.WARNING, "Login page did not load the correct title! Expected: " + title + " | Found: " + Driver.getInstance()
+                                                                                                                           .getDriver()
+                                                                                                                           .getTitle());
             return false;
         }
     }
 
     public void sendKeysToEmailField(String keys) {
-        type(email, keys);
+        SendKeys.usingElement(email, keys);
         if (VERBOSE_LOGS) Log.log(Status.INFO, "Entered " + keys + " into the email field.");
     }
 
     public void sendKeysToPasswordField(String keys) {
-        type(password, keys);
+        SendKeys.usingElement(password, keys);
         if (VERBOSE_LOGS) Log.log(Status.INFO, "Entered " + keys + " into the password field.");
     }
 
     public void clickSubmit() {
-        click(submitLogin);
+        Click.usingElement(submitLogin);
         if (VERBOSE_LOGS) Log.log(Status.INFO, "Clicked the \"Submit\" button");
     }
 
     public void clickCheckMeOut() {
-        click(checkMeOut);
+        Click.usingElement(checkMeOut);
         if (VERBOSE_LOGS) Log.log(Status.INFO, "Clicked the \"Check me out\" checkbox.");
     }
 
     public String getLoginMessageText() {
-        String text = getText(loginMessage);
+        String text = Get.ElementText.usingElement(loginMessage);
         if (VERBOSE_LOGS) Log.log(Status.INFO, "Login message displayed the following after logging in: " + text);
         return text;
     }

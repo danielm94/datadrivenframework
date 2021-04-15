@@ -136,9 +136,6 @@
                 <headless>true</headless>
                 <headlessResolution>1920,1080</headlessResolution>
             </properties>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
         </profile>
         <profile>
             <id>browser.firefox</id>
@@ -188,7 +185,7 @@
         <profile>
             <id>grid.disabled</id>
             <properties>
-                <grid.url></grid.url>
+                <grid.url/>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -199,9 +196,6 @@
             <properties>
                 <grid.url>http://localhost:4444</grid.url>
             </properties>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
         </profile>
     </profiles>
 </project>

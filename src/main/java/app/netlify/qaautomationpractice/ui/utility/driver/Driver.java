@@ -21,21 +21,21 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 
-public class GetDriver {
+public final class Driver {
     private static final ThreadLocal<URL> GRID_URL = new ThreadLocal<>();
-    private static GetDriver instance;
+    private static Driver instance;
     private static final ThreadLocal<WebDriver> DRIVER = new ThreadLocal<>();
     private static final ThreadLocal<WebDriverManager> WEB_DRIVER_MANAGER = new ThreadLocal<>();
     private static final ThreadLocal<DriverManagerType> DRIVER_TYPE = new ThreadLocal<>();
     private static final ThreadLocal<String> BROWSER_TYPE = new ThreadLocal<>();
     private static final ThreadLocal<Capabilities> CAPABILITIES = new ThreadLocal<>();
 
-    private GetDriver() {
+    private Driver() {
     }
 
-    public static GetDriver getInstance() {
+    public static Driver getInstance() {
         if (instance == null) {
-            instance = new GetDriver();
+            instance = new Driver();
         }
         return instance;
     }
@@ -66,28 +66,42 @@ public class GetDriver {
                 .getDriverManagerType(BROWSER_TYPE.get()));
         CAPABILITIES.set(OptionsManager
                 .getCapabilities(DRIVER_TYPE.get()));
-        if (Objects.nonNull(GRID_URL.get()) && !GRID_URL.get().toString().equals("")) {
+        if (Objects.nonNull(GRID_URL.get()) && !GRID_URL.get()
+                                                        .toString()
+                                                        .equals("")) {
             WEB_DRIVER_MANAGER.set(WebDriverManager.seleniumServerStandalone());
-            WEB_DRIVER_MANAGER.get().setup();
+            WEB_DRIVER_MANAGER.get()
+                              .setup();
             DRIVER.set(new RemoteWebDriver(GRID_URL.get(), CAPABILITIES.get()));
         } else {
             WEB_DRIVER_MANAGER.set(WebDriverManager.getInstance(DRIVER_TYPE.get()));
-            WEB_DRIVER_MANAGER.get().setup();
+            WEB_DRIVER_MANAGER.get()
+                              .setup();
             if (DRIVER_TYPE.get() == null)
                 throw new AssertionError("Invalid driver type. Check spelling of browser property in your test XML file");
-            if (DRIVER_TYPE.get().toString().equalsIgnoreCase("firefox")) {
+            if (DRIVER_TYPE.get()
+                           .toString()
+                           .equalsIgnoreCase("firefox")) {
                 DRIVER.set(new FirefoxDriver(
                         (FirefoxOptions) CAPABILITIES.get()));
-            } else if (DRIVER_TYPE.get().toString().equalsIgnoreCase("chrome")) {
+            } else if (DRIVER_TYPE.get()
+                                  .toString()
+                                  .equalsIgnoreCase("chrome")) {
                 DRIVER.set(new ChromeDriver(
                         (ChromeOptions) CAPABILITIES.get()));
-            } else if (DRIVER_TYPE.get().toString().equalsIgnoreCase("edge")) {
+            } else if (DRIVER_TYPE.get()
+                                  .toString()
+                                  .equalsIgnoreCase("edge")) {
                 DRIVER.set(new EdgeDriver(
                         (EdgeOptions) CAPABILITIES.get()));
-            } else if (DRIVER_TYPE.get().toString().equalsIgnoreCase("iexplorer")) {
+            } else if (DRIVER_TYPE.get()
+                                  .toString()
+                                  .equalsIgnoreCase("iexplorer")) {
                 DRIVER.set(new InternetExplorerDriver(
                         (InternetExplorerOptions) CAPABILITIES.get()));
-            } else if (DRIVER_TYPE.get().toString().equalsIgnoreCase("opera")) {
+            } else if (DRIVER_TYPE.get()
+                                  .toString()
+                                  .equalsIgnoreCase("opera")) {
                 DRIVER.set(new OperaDriver(OptionsManager.getOperaOptions()));
             }
         }
@@ -131,8 +145,17 @@ public class GetDriver {
         return browserDriver;
     }
 
+    public void navigateToURL(String url) {
+        Driver
+                .getInstance()
+                .getDriver()
+                .navigate()
+                .to(url);
+    }
+
     public void quit() {
         if (DRIVER.get() != null)
-            DRIVER.get().quit();
+            DRIVER.get()
+                  .quit();
     }
 }

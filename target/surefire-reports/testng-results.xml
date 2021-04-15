@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Parallel Suite" duration-ms="36782" started-at="2021-04-15T08:06:14 EDT" finished-at="2021-04-15T08:06:50 EDT">
+    <groups>
+      <group name="UI Tests">
+        <method signature="HomePageUITest.homeButtonTakesUserToHomePage()[pri:0, instance:[HomePageUITest passed=0 failed=0 skipped=0]]" name="homeButtonTakesUserToHomePage" class="app.netlify.qaautomationpractice.ui_tests.home_page.HomePageUITest"/>
+      </group> <!-- UI Tests -->
+      <group name="Regression">
+        <method signature="HomePageUITest.homeButtonTakesUserToHomePage()[pri:0, instance:[HomePageUITest passed=0 failed=0 skipped=0]]" name="homeButtonTakesUserToHomePage" class="app.netlify.qaautomationpractice.ui_tests.home_page.HomePageUITest"/>
+      </group> <!-- Regression -->
+      <group name="Unit Test">
+        <method signature="HomePageUITest.homeButtonTakesUserToHomePage()[pri:0, instance:[HomePageUITest passed=0 failed=0 skipped=0]]" name="homeButtonTakesUserToHomePage" class="app.netlify.qaautomationpractice.ui_tests.home_page.HomePageUITest"/>
+      </group> <!-- Unit Test -->
+    </groups>
+    <test name="Chrome Suite" duration-ms="36782" started-at="2021-04-15T08:06:14 EDT" finished-at="2021-04-15T08:06:50 EDT">
+      <class name="app.netlify.qaautomationpractice.ui_tests.home_page.HomePageUITest">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:[HomePageUITest passed=0 failed=0 skipped=0]]" name="beforeClass" is-config="true" duration-ms="11" started-at="2021-04-15T08:06:14 EDT" finished-at="2021-04-15T08:06:14 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="beforeMethod(java.lang.String)[pri:0, instance:[HomePageUITest passed=0 failed=0 skipped=0]]" name="beforeMethod" is-config="true" duration-ms="12795" started-at="2021-04-15T08:06:14 EDT" finished-at="2021-04-15T08:06:27 EDT">
+          <params>
+            <param index="0">
+              <value is-null="true"/>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="homeButtonTakesUserToHomePage()[pri:0, instance:[HomePageUITest passed=0 failed=0 skipped=0]]" name="homeButtonTakesUserToHomePage" duration-ms="484" started-at="2021-04-15T08:06:27 EDT" finished-at="2021-04-15T08:06:27 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- homeButtonTakesUserToHomePage -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:[HomePageUITest passed=0 failed=0 skipped=0]]" name="afterMethod" is-config="true" duration-ms="2989" started-at="2021-04-15T08:06:27 EDT" finished-at="2021-04-15T08:06:30 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod(java.lang.String)[pri:0, instance:[HomePageUITest passed=0 failed=0 skipped=0]]" name="beforeMethod" is-config="true" duration-ms="7498" started-at="2021-04-15T08:06:30 EDT" finished-at="2021-04-15T08:06:38 EDT">
+          <params>
+            <param index="0">
+              <value is-null="true"/>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="homePageIsLoaded()[pri:0, instance:[HomePageUITest passed=0 failed=0 skipped=0]]" name="homePageIsLoaded" duration-ms="30" started-at="2021-04-15T08:06:38 EDT" finished-at="2021-04-15T08:06:38 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- homePageIsLoaded -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:[HomePageUITest passed=0 failed=0 skipped=0]]" name="afterMethod" is-config="true" duration-ms="1212" started-at="2021-04-15T08:06:38 EDT" finished-at="2021-04-15T08:06:39 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod(java.lang.String)[pri:0, instance:[HomePageUITest passed=0 failed=0 skipped=0]]" name="beforeMethod" is-config="true" duration-ms="8450" started-at="2021-04-15T08:06:39 EDT" finished-at="2021-04-15T08:06:48 EDT">
+          <params>
+            <param index="0">
+              <value is-null="true"/>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="homePageTitleIsCorrect()[pri:0, instance:[HomePageUITest passed=0 failed=0 skipped=0]]" name="homePageTitleIsCorrect" duration-ms="15" started-at="2021-04-15T08:06:48 EDT" finished-at="2021-04-15T08:06:48 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- homePageTitleIsCorrect -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:[HomePageUITest passed=0 failed=0 skipped=0]]" name="afterMethod" is-config="true" duration-ms="2843" started-at="2021-04-15T08:06:48 EDT" finished-at="2021-04-15T08:06:50 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+      </class> <!-- app.netlify.qaautomationpractice.ui_tests.home_page.HomePageUITest -->
+    </test> <!-- Chrome Suite -->
+  </suite> <!-- Parallel Suite -->
+</testng-results>

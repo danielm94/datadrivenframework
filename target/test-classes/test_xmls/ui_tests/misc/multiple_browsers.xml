@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Debugging Suite" verbose="1" parallel="classes">
+    <test name="Debugging Test">
+        <classes>
+            <class name="app.netlify.qaautomationpractice.ui_tests.home_page.HomePageUITest"/>
+            <class name="app.netlify.qaautomationpractice.ui_tests.home_page.HomePageUITest2"/>
+        </classes>
+    </test>
+</suite>

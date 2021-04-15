@@ -5,15 +5,11 @@
 
 trigger:
 - master
-
 pool:
-  vmImage: ubuntu-latest
+  vmImage: windows-latest
 
-environment:
-- Some Environment
 
 steps:
-
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'

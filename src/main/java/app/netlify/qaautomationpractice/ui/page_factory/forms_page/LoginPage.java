@@ -11,8 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage implements PageObject {
-    private final boolean VERBOSE_LOGS = isVerboseLoggingEnabled();
+public final class LoginPage implements PageObject {
     private final String PAGE_URL = getExpectedPageURL();
     @FindBy(id = "email")
     WebElement email;
@@ -36,16 +35,11 @@ public class LoginPage implements PageObject {
     }
 
     @Override
-    public boolean isVerboseLoggingEnabled() {
-        return Boolean.parseBoolean(PropertyReader.getProperty(PageFactoryPropertyFile.LOGIN_PAGE_PROPERTIES, "verboseLogs"));
-    }
-
-    @Override
     public boolean isPageLoaded() {
-        if (VERBOSE_LOGS) Log.log(Status.INFO, "Checking if login page is loaded.");
+        Log.log(Status.INFO, "Checking if login page is loaded.");
         try {
             Check.PageURL.contains(PAGE_URL);
-            if (VERBOSE_LOGS) Log.log(Status.INFO, "Login page loaded the correct URL.");
+            Log.log(Status.INFO, "Login page loaded the correct URL.");
             return true;
         } catch (TimeoutException e) {
             Log.log(Status.WARNING, "Login page did not load the correct URL!");
@@ -57,14 +51,14 @@ public class LoginPage implements PageObject {
     public void navigateToPage() {
         Driver.getInstance()
               .navigateToURL(PAGE_URL);
-        if (VERBOSE_LOGS) Log.log(Status.INFO, "Navigated to the login page.");
+        Log.log(Status.INFO, "Navigated to the login page.");
     }
 
     public boolean isPageTitleValid(String title) {
-        if (VERBOSE_LOGS) Log.log(Status.INFO, "Checking if page title matches: " + title);
+        Log.log(Status.INFO, "Checking if page title matches: " + title);
         try {
             Check.PageTitle.matchesExactly(title);
-            if (VERBOSE_LOGS) Log.log(Status.INFO, "Title was displayed correctly.");
+            Log.log(Status.INFO, "Title was displayed correctly.");
             return true;
         } catch (TimeoutException e) {
             Log.log(Status.WARNING, "Login page did not load the correct title! Expected: " + title + " | Found: " + Driver.getInstance()
@@ -76,27 +70,27 @@ public class LoginPage implements PageObject {
 
     public void sendKeysToEmailField(String keys) {
         SendKeys.usingElement(email, keys);
-        if (VERBOSE_LOGS) Log.log(Status.INFO, "Entered " + keys + " into the email field.");
+        Log.log(Status.INFO, "Entered " + keys + " into the email field.");
     }
 
     public void sendKeysToPasswordField(String keys) {
         SendKeys.usingElement(password, keys);
-        if (VERBOSE_LOGS) Log.log(Status.INFO, "Entered " + keys + " into the password field.");
+        Log.log(Status.INFO, "Entered " + keys + " into the password field.");
     }
 
     public void clickSubmit() {
         Click.usingElement(submitLogin);
-        if (VERBOSE_LOGS) Log.log(Status.INFO, "Clicked the \"Submit\" button");
+        Log.log(Status.INFO, "Clicked the \"Submit\" button");
     }
 
     public void clickCheckMeOut() {
         Click.usingElement(checkMeOut);
-        if (VERBOSE_LOGS) Log.log(Status.INFO, "Clicked the \"Check me out\" checkbox.");
+        Log.log(Status.INFO, "Clicked the \"Check me out\" checkbox.");
     }
 
     public String getLoginMessageText() {
         String text = Get.ElementText.usingElement(loginMessage);
-        if (VERBOSE_LOGS) Log.log(Status.INFO, "Login message displayed the following after logging in: " + text);
+        Log.log(Status.INFO, "Login message displayed the following after logging in: " + text);
         return text;
     }
 }

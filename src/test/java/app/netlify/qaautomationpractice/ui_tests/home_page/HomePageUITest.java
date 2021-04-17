@@ -1,14 +1,14 @@
 package app.netlify.qaautomationpractice.ui_tests.home_page;
 
-import app.netlify.qaautomationpractice.ui.page_factory.home_page.HomePage;
 import app.netlify.qaautomationpractice.shared_utilities.report_utility.TestReportInformation;
+import app.netlify.qaautomationpractice.ui.page_factory.home_page.HomePage;
 import app.netlify.qaautomationpractice.ui.utility.test_base.UITestBase;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Listeners(UITestBase.class)
-public class HomePageUITest extends UITestBase {
+public final class HomePageUITest extends UITestBase {
     @TestReportInformation(title = "Is Home Page Loaded", description = "Verify home page is loaded")
     @Test()
     public void homePageIsLoaded() {

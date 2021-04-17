@@ -9,7 +9,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Listeners(UITestBase.class)
-public class LoginUITest extends UITestBase {
+public final class LoginUITest extends UITestBase {
     @Test(description = "Login test with valid credentials")
     @TestReportInformation(title = "Login With Valid Credentials",
             description = "Verify that the user can login with valid credentials.")

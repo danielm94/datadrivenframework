@@ -12,8 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage implements PageObject {
-    private final boolean VERBOSE_LOGS = isVerboseLoggingEnabled();
+public final class HomePage implements PageObject {
     private final String PAGE_URL = getExpectedPageURL();
     @FindBy(xpath = "//a[@id='home' and @href='index.html']")
     WebElement homeButton;
@@ -29,16 +28,11 @@ public class HomePage implements PageObject {
     }
 
     @Override
-    public boolean isVerboseLoggingEnabled() {
-        return Boolean.parseBoolean(PropertyReader.getProperty(PageFactoryPropertyFile.HOME_PAGE_PROPERTIES, "verboseLogs"));
-    }
-
-    @Override
     public boolean isPageLoaded() {
-        if (VERBOSE_LOGS) Log.log(Status.INFO, "Checking if home page is loaded.");
+        Log.log(Status.INFO, "Checking if home page is loaded.");
         try {
             Check.PageURL.contains(PAGE_URL);
-            if (VERBOSE_LOGS) Log.log(Status.INFO, "Home page loaded the correct URL.");
+            Log.log(Status.INFO, "Home page loaded the correct URL.");
             return true;
         } catch (TimeoutException e) {
             Log.log(Status.WARNING, "Home page did not load the correct URL!");
@@ -55,14 +49,14 @@ public class HomePage implements PageObject {
 
     public void clickHomeButton() {
         homeButton.click();
-        if (VERBOSE_LOGS) Log.log(Status.INFO, "Clicked on the 'Home' button.");
+        Log.log(Status.INFO, "Clicked on the 'Home' button.");
     }
 
     public boolean isPageTitleValid(String title) {
-        if (VERBOSE_LOGS) Log.log(Status.INFO, "Checking if page title matches: " + title);
+        Log.log(Status.INFO, "Checking if page title matches: " + title);
         try {
             Check.PageTitle.matchesExactly(title);
-            if (VERBOSE_LOGS) Log.log(Status.INFO, "Title was displayed correctly.");
+            Log.log(Status.INFO, "Title was displayed correctly.");
             return true;
         } catch (TimeoutException e) {
             Log.log(Status.WARNING, "Home page did not load the correct title! Expected: " + title + " | Found: " + Driver.getInstance()

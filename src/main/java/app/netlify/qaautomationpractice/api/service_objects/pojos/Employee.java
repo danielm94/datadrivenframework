@@ -1,5 +1,8 @@
-package app.netlify.qaautomationpractice.api.service_objects.pojos.response;
-
+package app.netlify.qaautomationpractice.api.service_objects.pojos;
+/*
+Author: Daniel Martins
+Email: daniel.d.martins@outlook.com
+*/
 public class Employee {
     private String dob;
     private String email;
@@ -60,12 +63,12 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "dob='" + dob + '\'' +
-                ", email='" + email + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", id=" + id +
-                ", lastName='" + lastName + '\'' +
-                '}';
+        return String.format(
+                "{id=%s, firstName=%s, lastName=%s, dob=%s, email=%s}",
+                this.id,
+                this.firstName,
+                this.lastName,
+                this.dob,
+                this.email);
     }
 }

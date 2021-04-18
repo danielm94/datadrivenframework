@@ -14,6 +14,7 @@ import java.io.IOException;
 
 public class UITestBase extends TestListenerAdapter {
     protected static String baseUrl;
+
     @BeforeClass
     public void beforeClass() {
         baseUrl = PropertyReader.getProperty(FrameworkPropertyFile.APPLICATION_PROPERTIES, "site.url");
@@ -22,27 +23,32 @@ public class UITestBase extends TestListenerAdapter {
     @Parameters(value = {"browser"})
     @BeforeMethod
     public void beforeMethod(@Optional String browser) {
-        Driver.getInstance().setDriver(browser);
-        Driver.getInstance().getDriver().get(baseUrl);
+        Driver.getInstance()
+              .setDriver(browser);
+        Driver.getInstance()
+              .getDriver()
+              .get(baseUrl);
     }
 
 
     @AfterMethod(alwaysRun = true)
     public void afterMethod() {
-        Driver.getInstance().quit();
+        Driver.getInstance()
+              .quit();
     }
 
     @Override
     public void onFinish(ITestContext context) {
-        Reporter
-                .getInstance().flushReport();
+        Reporter.getInstance()
+                .flushReport();
     }
 
 
     @Override
     public void onStart(ITestContext context) {
         try {
-            Reporter.getInstance().setupReporter(context.getName());
+            Reporter.getInstance()
+                    .setupReporter(context.getName());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -50,12 +56,16 @@ public class UITestBase extends TestListenerAdapter {
 
     @Override
     public void onTestFailure(ITestResult result) {
-        Log.log(Status.FAIL, result.getMethod().getMethodName() + " has failed.");
+        Log.log(Status.FAIL, result.getMethod()
+                                   .getMethodName() + " has failed.");
         ThreadLocal<String> screenshotFile = new ThreadLocal<>();
         try {
-            screenshotFile.set(Screenshot.captureBrowser(Driver.getInstance().getDriver(),
-                    Reporter.getInstance().getReportDirectory(),
-                    result.getMethod().getMethodName() + "_" + TimeStamp.getTimeStamp() + "_FAILURE"));
+            screenshotFile.set(Screenshot.captureBrowser(Driver.getInstance()
+                                                               .getDriver(),
+                    Reporter.getInstance()
+                            .getReportDirectory(),
+                    result.getMethod()
+                          .getMethodName() + "_" + TimeStamp.getTimeStamp() + "_FAILURE"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -69,22 +79,21 @@ public class UITestBase extends TestListenerAdapter {
     public void onTestStart(ITestResult result) {
         ThreadLocal<String> testReportTitle = new ThreadLocal<>();
         testReportTitle.set(result.getMethod()
-                .getConstructorOrMethod()
-                .getMethod()
-                .getAnnotation(TestReportInformation.class)
-                .title());
+                                  .getConstructorOrMethod()
+                                  .getMethod()
+                                  .getAnnotation(TestReportInformation.class)
+                                  .title());
         ThreadLocal<String> testReportDescription = new ThreadLocal<>();
         testReportDescription.set(result.getMethod()
-                .getConstructorOrMethod()
-                .getMethod()
-                .getAnnotation(TestReportInformation.class)
-                .description());
-        TestReport
-                .getInstance()
-                .createTestReport
-                        (testReportTitle.get(), testReportDescription.get());
+                                        .getConstructorOrMethod()
+                                        .getMethod()
+                                        .getAnnotation(TestReportInformation.class)
+                                        .description());
         TestReport.getInstance()
-                .assignTestCategories(result.getMethod().getGroups());
+                  .createTestReport(testReportTitle.get(), testReportDescription.get());
+        TestReport.getInstance()
+                  .assignTestCategories(result.getMethod()
+                                              .getGroups());
     }
 
     @Override

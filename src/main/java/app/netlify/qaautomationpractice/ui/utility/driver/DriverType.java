@@ -3,7 +3,14 @@ package app.netlify.qaautomationpractice.ui.utility.driver;
 import app.netlify.qaautomationpractice.ui.utility.driver.browser_options.*;
 import app.netlify.qaautomationpractice.ui.utility.driver.driver_builder.*;
 import org.openqa.selenium.InvalidArgumentException;
+/*
+Author: Daniel Martins
+Email: daniel.d.martins@outlook.com
+*/
 
+/**
+ * Enum
+ */
 public enum DriverType {
     CHROME(new ChromeDriverBuilder(), new ChromeCapabilities()),
     FIREFOX(new FirefoxDriverBuilder(), new FirefoxCapabilities()),

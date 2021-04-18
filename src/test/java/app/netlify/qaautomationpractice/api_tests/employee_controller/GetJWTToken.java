@@ -13,5 +13,6 @@ public class GetJWTToken extends APITestBase {
         int statusCode = tokenService.getStatusCode();
         System.out.println(token);
         System.out.println(statusCode);
+        System.out.println(tokenService.getResponseTime());
     }
 }

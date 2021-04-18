@@ -1,5 +1,8 @@
-package app.netlify.qaautomationpractice.api.service_objects.pojos.request;
-
+package app.netlify.qaautomationpractice.api.service_objects.pojos;
+/*
+Author: Daniel Martins
+Email: daniel.d.martins@outlook.com
+*/
 public class UserCredentials {
     private String username;
     private String password;
@@ -8,6 +11,7 @@ public class UserCredentials {
         this.username = username;
         this.password = password;
     }
+
     public UserCredentials() {
     }
 
@@ -29,9 +33,9 @@ public class UserCredentials {
 
     @Override
     public String toString() {
-        return "UserCredentials{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+        return String.format(
+                "UserCredentials {username=%s, password=%s}",
+                this.username,
+                this.password);
     }
 }

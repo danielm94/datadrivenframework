@@ -125,6 +125,29 @@
     </build>
     <!-- profiles -->
     <profiles>
+        <!-- platforms -->
+        <profile>
+            <id>platform.windows</id>
+            <properties>
+                <platform>WIN</platform>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>platform.mac</id>
+            <properties>
+                <platform>MAC</platform>
+            </properties>
+        </profile>
+        <profile>
+            <id>platform.linux</id>
+            <properties>
+                <platform>LINUX</platform>
+            </properties>
+        </profile>
+
         <!-- browsers -->
         <profile>
             <id>browser.headless_disabled</id>
@@ -146,7 +169,7 @@
         <profile>
             <id>browser.firefox</id>
             <properties>
-               <browser>FIREFOX</browser>
+                <browser>FIREFOX</browser>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
